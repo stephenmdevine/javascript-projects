@@ -64,9 +64,9 @@ function crewReports(crewMember) {
 }
 
 crewReports(waterBear);
-console.log(waterBear.move());
 
-console.log(timeOfRace(waterBear, 20));
+// console.log(waterBear.move());
+// console.log(timeOfRace(waterBear, 20));
 
 // Start an animal race!
 // Function to find the amount of turns to complete a race of a number of steps.
