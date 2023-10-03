@@ -76,7 +76,7 @@ function buildCrewArray(randIds, candidates) {
   return arr;
 }
 
+// Code your template literal and console.log statements:
+
 luckyWinners = buildCrewArray(newArray, animals);
 console.log(`${luckyWinners[0]}, ${luckyWinners[1]}, and ${luckyWinners[2]} are going to space!`);
-
-// Code your template literal and console.log statements:
