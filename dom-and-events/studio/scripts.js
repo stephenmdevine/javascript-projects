@@ -12,21 +12,26 @@ window.addEventListener("load", () => {
     const rocket = document.getElementById("rocket");
     rocket.style.position = "absolute";
     const up = document.getElementById("up");
-    let upPosition = 0;
     const down = document.getElementById("down");
-    let downPosition = 0;
+    let upDown = 250;
     const left = document.getElementById("left");
-    let leftPosition = 0;
     const right = document.getElementById("right");
-    let rightPosition = 0;
+    let leftRight = 0;
+    rocket.style.top = upDown + "px";
+    rocket.style.left = leftRight + "px";
+    let windowWidth = (0.4 * parseInt(window.innerWidth)) - 85;
 
     takeoff.addEventListener("click", function(event) {
         let confirm = window.confirm("Confirm that the shuttle is ready for takeoff.")
         if(confirm) {
             flightStatus.innerHTML = "Shuttle in flight.";
             shuttleBackground.style.backgroundColor = "blue";
-            shuttleHeight += 10000;
-            spaceShuttleHeight.innerHTML = shuttleHeight;
+            if (upDown >= 10) {
+                shuttleHeight += 10000;
+                upDown -= 10;
+                spaceShuttleHeight.innerHTML = shuttleHeight;
+                rocket.style.top = upDown + "px";
+            }
         }
     });
 
@@ -36,6 +41,8 @@ window.addEventListener("load", () => {
         shuttleBackground.style.backgroundColor = "green";
         shuttleHeight = 0
         spaceShuttleHeight.innerHTML = shuttleHeight;
+        upDown = 250;
+        rocket.style.top = upDown + "px";
     });
 
     missionAbort.addEventListener("click", event => {
@@ -45,31 +52,41 @@ window.addEventListener("load", () => {
             shuttleBackground.style.backgroundColor = "green";
             shuttleHeight = 0
             spaceShuttleHeight.innerHTML = shuttleHeight;
+            upDown = 250;
+            rocket.style.top = upDown + "px";
         }
     });
 
     up.addEventListener("click", event => {
-        shuttleHeight += 10000;
-        spaceShuttleHeight.innerHTML = shuttleHeight;
-        upPosition -= 10;
-        rocket.style.top = upPosition + "px";
+        if (upDown >= 10) {
+            shuttleHeight += 10000;
+            upDown -= 10;
+            spaceShuttleHeight.innerHTML = shuttleHeight;
+            rocket.style.top = upDown + "px";
+        }
     });
 
     down.addEventListener("click", event => {
-        shuttleHeight -= 10000;
-        spaceShuttleHeight.innerHTML = shuttleHeight;
-        downPosition += 10;
-        rocket.style.top = downPosition + "px";
+        if (upDown <= 240) {
+            shuttleHeight -= 10000;
+            upDown += 10;
+            spaceShuttleHeight.innerHTML = shuttleHeight;
+            rocket.style.top = upDown + "px";
+        }
     });
 
     left.addEventListener("click", event => {
-        leftPosition -= 10;
-        rocket.style.left = leftPosition + "px";
+        if (leftRight >= 10) {
+            leftRight -= 10;
+            rocket.style.left = leftRight + "px";
+        }
     });
 
     right.addEventListener("click", event => {
-        rightPosition += 10;
-        rocket.style.left = rightPosition + "px";
+        if (leftRight <= windowWidth) {
+            leftRight += 10;
+            rocket.style.left = leftRight + "px";
+        }
     });
 
 });
