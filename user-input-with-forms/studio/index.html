@@ -1,0 +1,53 @@
+<!doctype html>
+
+<head>
+	<meta charset="utf-8">
+	<script>
+		// TODO: create a handler
+		window.addEventListener("load", function() {
+			// TODO: register the handler
+			let form = document.getElementById("searchForm");
+			form.addEventListener("submit", () => {
+				let actionURL;
+				let engine = document.querySelector("input[name='engine']");
+				console.log(engine);
+				// if ()
+
+			});
+			// form.addEventListener("submit", setSearchEngine());
+			// function setSearchEngine() {
+			// 	let google = document.getElementById("google");
+			// 	let duckDuckGo = document.getElementById("duckDuckGo");
+			// 	let bing = document.getElementById("bing");
+			// 	let ask = document.getElementById("ask");
+			// 	let actionURL;
+			// 	if (google.checked) {
+			// 		actionURL = "https://www.google.com/search";
+			// 	}	else if (duckDuckGo.checked) {
+			// 		actionURL = "https://duckduckgo.com/";
+			// 	}	else if (bing.checked) {
+			// 		actionURL = "https://www.bing.com/search";
+			// 	}	else if (ask.checked) {
+			// 		actionURL = "https://www.ask.com/web";
+			// 	}
+			// 	console.log(actionURL);
+			// }
+		});
+	</script>
+</head>
+
+<body>
+
+	<form id="searchForm">
+    <!-- TODO: add form elements -->
+		<input type="text" name="q"/>
+
+		<label><input type="radio" name="engine" value="google" id="google"/>Google</label>
+		<label><input type="radio" name="engine" value="duckDuckGo" id="duckDuckGo"/>DuckDuckGo</label>
+		<label><input type="radio" name="engine" value="bing" id="bing"/>Bing</label>
+		<label><input type="radio" name="engine" value="ask" id="ask"/>Ask</label>
+
+		<input type="submit" value="Go!"/>
+	</form>
+
+</body>
